@@ -1,6 +1,6 @@
 # Task Management REST API — Python / FastAPI
 
-A runnable, interview-oriented REST API demonstrating:
+A runnable, REST API demonstrating:
 
 - FastAPI
 - SQLAlchemy 2.x
@@ -183,30 +183,3 @@ Run:
 ```bash
 pytest
 ```
-
-The integration tests use a temporary SQLite database, so PostgreSQL is not required for the test suite.
-
-## Interview topics demonstrated
-
-Be prepared to explain:
-
-- Why FastAPI?
-- Why Pydantic?
-- Why SQLAlchemy?
-- Why PostgreSQL?
-- Why service/repository layers?
-- How dependency injection works
-- JWT authentication vs authorization
-- Password hashing
-- HTTP status codes
-- Pagination and filtering
-- Transaction boundaries
-- Exception handling
-- Docker networking
-- Configuration through environment variables
-- Unit vs integration testing
-- How the architecture could evolve into microservices
-
-## Production caveats
-
-This is a learning and interview project, not a drop-in production system. Before production use, add proper secret management, HTTPS/TLS termination, robust database migrations, refresh-token strategy, token revocation strategy, audit logging, rate limiting, structured logging, metrics/tracing, security headers, automated security scanning and a production-grade deployment configuration.
