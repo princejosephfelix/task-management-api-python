@@ -8,3 +8,6 @@ htmlcov/
 .idea/
 .vscode/
 *.log
+.sonar/
+coverage.xml
+test_task_management.db

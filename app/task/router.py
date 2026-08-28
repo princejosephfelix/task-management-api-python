@@ -30,13 +30,19 @@ def create_task(
 def list_tasks(
     db: Annotated[Session, Depends(get_db)],
     current_user: Annotated[User, Depends(get_current_user)],
-    page: int = Query(1, ge=1),
-    page_size: int = Query(10, ge=1, le=100),
-    status_filter: TaskStatus | None = Query(default=None, alias="status"),
+    page: Annotated[int, Query(ge=1)] = 1,
+    page_size: Annotated[int, Query(ge=1, le=100)] = 10,
+    status_filter: Annotated[
+    TaskStatus | None,
+    Query(alias="status"),
+                            ] = None,
     priority: TaskPriority | None = None,
-    search: str | None = Query(default=None, max_length=100),
-    sort_by: str = Query("created_at"),
-    sort_order: str = Query("desc", pattern="^(asc|desc)$"),
+    search: Annotated[
+    str | None,
+    Query(max_length=100),
+                    ] = None,
+    sort_by: Annotated[str, Query()] = "created_at",
+    sort_order: Annotated[str, Query(pattern="^(asc|desc)$")] = "desc",
 ):
     return TaskService(db).list(
         current_user,
